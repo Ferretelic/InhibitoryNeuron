@@ -1,11 +1,16 @@
 import torch
 import torchvision
 import torchvision.transforms as transforms
+import PIL
 
 def get_cifar10(batch_size):
-  transform = transforms.Compose(
-      [transforms.ToTensor(),
-      transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
+  transform = transforms.Compose([
+    transforms.ColorJitter(hue=.05, saturation=.05),
+    transforms.RandomHorizontalFlip(),
+    transforms.RandomRotation(20, resample=PIL.Image.BILINEAR),
+    transforms.ToTensor(),
+    transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
+  ])
 
   trainset = torchvision.datasets.CIFAR10(root="./data", train=True,
                                           download=True, transform=transform)
