@@ -4,17 +4,18 @@ import pyprind
 import os
 import sys
 from torch.utils.tensorboard import SummaryWriter
+import shutil
 
-def train_model(model, criterion, optimizer, epochs, trainloader, testloader, device, model_directory, background):
-  writer = SummaryWriter(os.path.join(model_directory, "logs"))
+def train_model(model, criterion, optimizer, epochs, trainloader, testloader, device):
+  shutil.rmtree("../logs", ignore_errors=True)
+  os.mkdir("../logs")
+  writer = SummaryWriter("../logs")
+
   history = {"loss": [], "accuracy": []}
 
   for epoch in range(epochs):  # loop over the dataset multiple times
     running_loss = 0.0
-    if background == True:
-      bar = pyprind.ProgBar(len(trainloader), track_time=True, title="Training Model", stream=sys.stdout)
-    else:
-      bar = pyprind.ProgBar(len(trainloader), track_time=True, title="Training Model")
+    bar = pyprind.ProgBar(len(trainloader), track_time=True, title="Training Model")
 
     for i, data in enumerate(trainloader, 0):
         # get the inputs; data is a list of [inputs, labels]
@@ -43,9 +44,6 @@ def train_model(model, criterion, optimizer, epochs, trainloader, testloader, de
         _, predicted = torch.max(outputs.data, 1)
         total += labels.size(0)
         correct += (predicted == labels).sum().item()
-
-      model_path = os.path.join(model_directory, "model_{}.pth".format(epoch + 1))
-      torch.save({"epoch": epoch, "model_state_dict": model.state_dict(), "loss": running_loss / len(trainloader)}, model_path)
 
       history["loss"].append(running_loss / len(trainloader))
       history["accuracy"].append(correct / total)
