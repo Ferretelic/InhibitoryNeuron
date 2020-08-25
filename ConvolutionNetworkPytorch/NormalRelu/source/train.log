@@ -34,3 +34,9 @@ Warning: No valid output stream.
 Epoch: 11 Loss: 1.106
 Accuracy of the network on the 10000 test images: 59 %
 Warning: No valid output stream.
+Epoch: 12 Loss: 1.082
+Accuracy of the network on the 10000 test images: 61 %
+Warning: No valid output stream.
+Epoch: 13 Loss: 1.064
+Accuracy of the network on the 10000 test images: 62 %
+Warning: No valid output stream.
