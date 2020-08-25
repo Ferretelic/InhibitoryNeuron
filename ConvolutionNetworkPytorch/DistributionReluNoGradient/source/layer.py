@@ -4,7 +4,7 @@ import torch.nn as nn
 from distribution_3d import get_distribution_3d
 
 class DistributionConvolution2DNoGradient(nn.Module):
-  def __init__(self, filters, kernel_size, input_size, padding=0, stride=1, activation=torch.sigmoid):
+  def __init__(self, filters, kernel_size, input_size, padding=0, stride=1):
     super().__init__()
 
     # parameters
@@ -12,7 +12,7 @@ class DistributionConvolution2DNoGradient(nn.Module):
     self.filters = filters
     self.padding = padding
     self.stride = stride
-    self.activation = activation
+    self.activation = torch.relu
 
     # channels, input image height, input image width
     channels, input_height, input_width = input_size
