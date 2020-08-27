@@ -1,32 +1,30 @@
-from convolution_layer import NormalConvolution2D, DistributionConvolution2DNoGrad, DistributionConvolution2DGrad
+from layer import DistributionConvolution2DGradient
 import torch.nn as nn
 import torch
-import torch.nn.functional as F
-import torch.optim as optim
 
-class DistributionConvolutionModelReluGrad(nn.Module):
+class DistributionConvolutionModelReluGradient(nn.Module):
   def __init__(self):
-    super(DistributionConvolutionModelReluGrad, self).__init__()
+    super(DistributionConvolutionModelReluGradient, self).__init__()
 
     # Conv1
-    self.conv1_1 = DistributionConvolution2DGrad(filters=32, kernel_size=(3, 3), input_size=(3, 32, 32), padding=1, activation=F.relu)
+    self.conv1_1 = DistributionConvolution2DGradient(filters=32, kernel_size=(3, 3), input_size=(3, 32, 32), padding=1)
     self.batch_normalization1_1 = nn.BatchNorm2d(self.conv1_1.output_size[0])
-    self.conv1_2 = DistributionConvolution2DGrad(filters=32, kernel_size=(3, 3), input_size=self.conv1_1.output_size, padding=1, activation=F.relu)
+    self.conv1_2 = DistributionConvolution2DGradient(filters=32, kernel_size=(3, 3), input_size=self.conv1_1.output_size, padding=1)
     self.batch_normalization1_2 = nn.BatchNorm2d(self.conv1_2.output_size[0])
     conv1_output = self.get_pool_output(self.conv1_2)
 
     # Conv2
-    self.conv2_1 = DistributionConvolution2DGrad(filters=64, kernel_size=(3, 3), input_size=conv1_output, padding=1, activation=F.relu)
+    self.conv2_1 = DistributionConvolution2DGradient(filters=64, kernel_size=(3, 3), input_size=conv1_output, padding=1)
     self.batch_normalization2_1 = nn.BatchNorm2d(self.conv2_1.output_size[0])
-    self.conv2_2 = DistributionConvolution2DGrad(filters=64, kernel_size=(3, 3), input_size=self.conv2_1.output_size, padding=1, activation=F.relu)
+    self.conv2_2 = DistributionConvolution2DGradient(filters=64, kernel_size=(3, 3), input_size=self.conv2_1.output_size, padding=1)
     self.batch_normalization2_2 = nn.BatchNorm2d(self.conv2_2.output_size[0])
     conv2_output = self.get_pool_output(self.conv2_2)
     self.batch_normalization2 = nn.BatchNorm2d(conv2_output[1])
 
     ## Conv3
-    self.conv3_1 = DistributionConvolution2DGrad(filters=128, kernel_size=(3, 3), input_size=conv2_output, padding=1, activation=F.relu)
+    self.conv3_1 = DistributionConvolution2DGradient(filters=128, kernel_size=(3, 3), input_size=conv2_output, padding=1)
     self.batch_normalization3_1 = nn.BatchNorm2d(self.conv3_1.output_size[0])
-    self.conv3_2 = DistributionConvolution2DGrad(filters=128, kernel_size=(3, 3), input_size=self.conv3_1.output_size, padding=1, activation=F.relu)
+    self.conv3_2 = DistributionConvolution2DGradient(filters=128, kernel_size=(3, 3), input_size=self.conv3_1.output_size, padding=1)
     self.batch_normalization3_2 = nn.BatchNorm2d(self.conv3_2.output_size[0])
     conv3_output = self.get_pool_output(self.conv3_2)
     self.batch_normalization3 = nn.BatchNorm2d(conv3_output[1])
