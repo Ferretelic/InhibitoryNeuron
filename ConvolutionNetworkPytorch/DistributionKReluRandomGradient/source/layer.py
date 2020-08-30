@@ -5,7 +5,7 @@ from distribution_3d import get_distribution_3d
 from activations import krelu
 
 class DistributionConvolution2DGradientKReluRandom(nn.Module):
-  def __init__(self, filters, kernel_size, input_size, padding=0, stride=1, variance=0.1):
+  def __init__(self, filters, kernel_size, input_size, padding=0, stride=1):
     super().__init__()
 
     # parameters

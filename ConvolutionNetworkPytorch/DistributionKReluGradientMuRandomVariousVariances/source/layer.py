@@ -4,8 +4,8 @@ import torch.nn as nn
 from distribution_3d import get_distribution_3d
 from activations import krelu
 
-class DistributionConvolution2DGradientKReluMuRandom(nn.Module):
-  def __init__(self, filters, kernel_size, input_size, padding=0, stride=1):
+class DistributionConvolution2DGradientKReluRandom(nn.Module):
+  def __init__(self, filters, kernel_size, input_size, padding=0, stride=1, variance=0.1):
     super().__init__()
 
     # parameters
@@ -35,7 +35,7 @@ class DistributionConvolution2DGradientKReluMuRandom(nn.Module):
     self.weights = nn.Parameter(torch.randn((self.weights_height, self.filters), dtype=torch.float32))
     self.biases = nn.Parameter(torch.zeros(self.output_size, dtype=torch.float32))
 
-    self.distribution = nn.Parameter(torch.tensor(get_distribution_3d(self.output_size, 0.1, np.random.randn(2)), dtype=torch.float32))
+    self.distribution = nn.Parameter(torch.tensor(get_distribution_3d(self.output_size, variance, np.random.randn(2)), dtype=torch.float32))
 
   def forward(self, x):
     # image to column
