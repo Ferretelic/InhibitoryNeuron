@@ -1,10 +1,10 @@
 import torch
-from network import DistributionConvolutionModelKReluGradient
+from distribution_3d import plot_distribution
+from network import DistributionConvolutionModelKReluGradientMuRandom
 import matplotlib.pyplot as plt
 
-model = DistributionConvolutionModelKReluGradient()
+model = DistributionConvolutionModelKReluGradientMuRandom()
 model.load_state_dict(torch.load("../model/model_final.pth"), strict=False)
-distribution = model.conv1_1.distribution.detach().numpy()[0]
+distribution = model.conv3_1.distribution.detach().numpy()[2]
 
-plt.imshow(distribution)
-plt.savefig("./distribution.png")
+plot_distribution(distribution)
