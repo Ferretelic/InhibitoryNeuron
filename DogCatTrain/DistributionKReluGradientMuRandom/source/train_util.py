@@ -49,7 +49,6 @@ def train_model(model, criterion, optimizer, epochs, x_train, y_train, x_test, y
         outputs = model(inputs)
         _, predicted = torch.max(outputs.data, 1)
         correct += (predicted == labels).sum().item()
-        print((predicted == labels).sum().item())
 
       accuracy = correct / y_test.shape[0]
       loss = running_loss / (y_train.shape[0] // batch_size)

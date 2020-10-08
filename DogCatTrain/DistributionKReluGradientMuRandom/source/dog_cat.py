@@ -40,7 +40,7 @@ def prepare_datasets(image_size):
             image = np.moveaxis(image, -1, 0)
             datasets[data_type]["images"].append(image)
 
-            if category== "dog":
+            if category == "dogs":
               datasets[data_type]["labels"].append(0)
             else:
               datasets[data_type]["labels"].append(1)
