@@ -41,5 +41,5 @@ def plot_distribution(distribution):
   ax.set_zlabel("z")
   plt.savefig("../image/distribution.png")
 
-distribution = get_distribution_3d((1, 100, 100), 2, (0, 0))
-plot_distribution(distribution[0])
+# distribution = get_distribution_3d((1, 100, 100), 2, (0, 0))
+# plot_distribution(distribution[0])
