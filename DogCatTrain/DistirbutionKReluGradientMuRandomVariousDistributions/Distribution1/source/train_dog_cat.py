@@ -6,7 +6,7 @@ import pickle
 
 from train_util import train_model
 from dog_cat import load_datasets, prepare_datasets
-from network import NormalConvolutionModelRelu
+from network import DistributionConvolutionModelKReluGradientMuRandom
 from show_history import plot_history
 
 if os.path.isdir("../model") == False:
@@ -18,7 +18,7 @@ device_name = "cuda"
 learning_rate = 0.001
 batch_size = 32
 image_size = (100, 100)
-model = NormalConvolutionModelRelu(image_size=image_size)
+model = DistributionConvolutionModelKReluGradientMuRandom(image_size=image_size)
 
 device = torch.device(device_name)
 model.to(device)

@@ -1,1 +1,33 @@
 Preparing Datasets
+Loading Datasets
+Start Training
+Warning: No valid output stream.
+/home/shouki/Desktop/Programming/Python/AI/Research/InhibitoryNeuron/DogCatTrain/NormalRelu/source/train_util.py:46: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  inputs = torch.tensor(x_test[i * batch_size : (i + 1) * batch_size], device=device, dtype=torch.float32)
+/home/shouki/Desktop/Programming/Python/AI/Research/InhibitoryNeuron/DogCatTrain/NormalRelu/source/train_util.py:47: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  labels = torch.tensor(y_test[i * batch_size : (i + 1) * batch_size], device=device, dtype=torch.long)
+Epoch: 1 Loss: 1.586
+Accuracy of the network on the 10000 test images: 62 %
+Warning: No valid output stream.
+/home/shouki/Desktop/Programming/Python/AI/Research/InhibitoryNeuron/DogCatTrain/NormalRelu/source/train_util.py:40: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  x_test = torch.tensor(x_test[:(y_test.shape[0] // batch_size * batch_size)], device=device, dtype=torch.float32)
+/home/shouki/Desktop/Programming/Python/AI/Research/InhibitoryNeuron/DogCatTrain/NormalRelu/source/train_util.py:41: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  y_test = torch.tensor(y_test[:(y_test.shape[0] // batch_size * batch_size)], device=device, dtype=torch.float32)
+Epoch: 2 Loss: 1.437
+Accuracy of the network on the 10000 test images: 67 %
+Warning: No valid output stream.
+Epoch: 3 Loss: 1.555
+Accuracy of the network on the 10000 test images: 66 %
+Warning: No valid output stream.
+Epoch: 4 Loss: 1.358
+Accuracy of the network on the 10000 test images: 67 %
+Warning: No valid output stream.
+Epoch: 5 Loss: 1.317
+Accuracy of the network on the 10000 test images: 68 %
+Warning: No valid output stream.
+Epoch: 6 Loss: 1.172
+Accuracy of the network on the 10000 test images: 67 %
+Warning: No valid output stream.
+Epoch: 7 Loss: 1.080
+Accuracy of the network on the 10000 test images: 70 %
+Warning: No valid output stream.
