@@ -6,7 +6,7 @@ import sys
 from torch.utils.tensorboard import SummaryWriter
 import shutil
 
-def train_model(model, criterion, optimizer, epochs, trainloader, testloader, device):
+def train_model(model, criterion, optimizer, epochs, x_train, y_train, x_test, y_test, device, batch_size):
   shutil.rmtree("../logs", ignore_errors=True)
   os.mkdir("../logs")
   writer = SummaryWriter("../logs")
@@ -15,35 +15,35 @@ def train_model(model, criterion, optimizer, epochs, trainloader, testloader, de
 
   for epoch in range(epochs):  # loop over the dataset multiple times
     running_loss = 0.0
-    bar = pyprind.ProgBar(len(trainloader), track_time=True, title="Training Model")
+    bar = pyprind.ProgBar(y_train.shape[0], track_time=True, title="Training Model")
 
-    for i, data in enumerate(trainloader, 0):
-        # get the inputs; data is a list of [inputs, labels]
-        inputs, labels = data[0].to(device), data[1].to(device)
+    for i in range(y_train.shape[0] // batch_size):
+      # get the inputs; data is a list of [inputs, labels]
+      inputs = torch.tensor(x_train[i * batch_size : (i + 1) * batch_size], device=device, dtype=torch.float32)
+      labels = torch.tensor(y_train[i * batch_size : (i + 1) * batch_size], device=device, dtype=torch.long)
 
-        # zero the parameter gradients
-        optimizer.zero_grad()
+      # zero the parameter gradients
+      optimizer.zero_grad()
 
-        # forward + backward + optimize
-        outputs = model(inputs)
-        loss = criterion(outputs, labels)
-        loss.backward()
-        optimizer.step()
+      # forward + backward + optimize
+      outputs = model(inputs)
+      loss = criterion(outputs, labels)
+      loss.backward()
+      optimizer.step()
 
-        running_loss += loss.item()
+      running_loss += loss.item()
 
-        bar.update()
+      bar.update()
 
-    correct = 0
-    total = 0
 
     with torch.no_grad():
-      for data in testloader:
-        images, labels = data[0].to(device), data[1].to(device)
-        outputs = model(images)
-        _, predicted = torch.max(outputs.data, 1)
-        total += labels.size(0)
-        correct += (predicted == labels).sum().item()
+      inputs = torch.tensor(x_test, device=device, dtype=torch.float32)
+      labels = torch.tensor(y_test, device=device, dtype=torch.float32)
+
+      outputs = model(inputs)
+      _, predicted = torch.max(outputs.data, 1)
+      total = labels.size(0)
+      correct = (predicted == labels).sum().item()
 
       history["loss"].append(running_loss / len(trainloader))
       history["accuracy"].append(correct / total)

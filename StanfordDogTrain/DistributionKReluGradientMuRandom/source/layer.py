@@ -35,7 +35,7 @@ class DistributionConvolution2DGradientKReluMuRandom(nn.Module):
     self.weights = nn.Parameter(torch.randn((self.weights_height, self.filters), dtype=torch.float32))
     self.biases = nn.Parameter(torch.zeros(self.output_size, dtype=torch.float32))
 
-    self.distribution = nn.Parameter(torch.tensor(get_distribution_3d(self.output_size, 0.1, np.random.randn(2)), dtype=torch.float32))
+    self.distribution = nn.Parameter(torch.tensor(get_distribution_3d(self.output_size, 0.3, np.random.randn(2)), dtype=torch.float32))
 
   def forward(self, x):
     # image to column

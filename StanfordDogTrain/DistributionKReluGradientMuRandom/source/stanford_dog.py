@@ -17,7 +17,7 @@ def prepare_datasets():
       for image_name in os.listdir(os.path.join(datasets_path, "Images", dog_directory)):
         if image_name[0] != ".":
           image = cv2.imread(os.path.join(datasets_path, "Images", dog_directory, image_name))
-          image = cv2.resize(image, (300, 300))
+          image = cv2.resize(image, (50, 50))
 
           images.append(image)
           labels.append(label)
@@ -27,6 +27,7 @@ def prepare_datasets():
       print(dog_directory[10:].lower())
 
   images = np.array(images)
+  images = np.moveaxis(images, -1, 1)
   labels = np.array(labels)
 
   with open(os.path.join(datasets_path, "images.pkl"), "wb") as f:
@@ -39,6 +40,7 @@ def prepare_datasets():
     pickle.dump(label_names, f)
 
 def load_images():
+  print("Loading Images...")
   datasets_path = "/home/shouki/Desktop/Programming/Python/AI/Datasets/ImageData/StanfordDogsDataset"
   with open(os.path.join(datasets_path, "images.pkl"), "rb") as f:
     images = pickle.load(f)
@@ -52,7 +54,11 @@ def load_images():
   indices = np.arange(0, images.shape[0])
   np.random.shuffle(indices)
 
-  x_train = images[indices]
-  labels = labels[indices]
+  train_size = np.int(indices.shape[0] * 0.8)
+  x_train = images[indices[:train_size]]
+  y_train = labels[indices[:train_size]]
 
-  return images, labels
+  x_test = images[indices[train_size:]]
+  y_test= labels[indices[train_size:]]
+
+  return x_train, y_train, x_test, y_test
