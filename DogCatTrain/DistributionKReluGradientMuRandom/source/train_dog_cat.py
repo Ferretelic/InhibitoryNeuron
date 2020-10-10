@@ -12,7 +12,7 @@ from show_history import plot_history
 if os.path.isdir("../model") == False:
   os.mkdir("../model")
 
-prepared = False
+prepared = True
 epochs = 50
 device_name = "cuda"
 learning_rate = 0.001

@@ -1,4 +1,3 @@
-Preparing Datasets
 Loading Datasets
 Start Training
 Warning: No valid output stream.
@@ -6,157 +5,28 @@ Warning: No valid output stream.
   inputs = torch.tensor(x_test[i * batch_size : (i + 1) * batch_size], device=device, dtype=torch.float32)
 /home/shouki/Desktop/Programming/Python/AI/Research/InhibitoryNeuron/DogCatTrain/DistributionKReluGradientMuRandom/source/train_util.py:47: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
   labels = torch.tensor(y_test[i * batch_size : (i + 1) * batch_size], device=device, dtype=torch.long)
-Epoch: 1 Loss: 1.121
-Accuracy of the network on the 10000 test images: 55 %
+Epoch: 1 Loss: 1.003
+Accuracy of the network on the 10000 test images: 61 %
 Warning: No valid output stream.
 /home/shouki/Desktop/Programming/Python/AI/Research/InhibitoryNeuron/DogCatTrain/DistributionKReluGradientMuRandom/source/train_util.py:40: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
   x_test = torch.tensor(x_test[:(y_test.shape[0] // batch_size * batch_size)], device=device, dtype=torch.float32)
 /home/shouki/Desktop/Programming/Python/AI/Research/InhibitoryNeuron/DogCatTrain/DistributionKReluGradientMuRandom/source/train_util.py:41: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
   y_test = torch.tensor(y_test[:(y_test.shape[0] // batch_size * batch_size)], device=device, dtype=torch.float32)
-Epoch: 2 Loss: 1.056
-Accuracy of the network on the 10000 test images: 61 %
+Epoch: 2 Loss: 0.895
+Accuracy of the network on the 10000 test images: 65 %
 Warning: No valid output stream.
-Epoch: 3 Loss: 0.890
-Accuracy of the network on the 10000 test images: 61 %
+Epoch: 3 Loss: 0.845
+Accuracy of the network on the 10000 test images: 63 %
 Warning: No valid output stream.
-Epoch: 4 Loss: 0.922
-Accuracy of the network on the 10000 test images: 55 %
+Epoch: 4 Loss: 0.841
+Accuracy of the network on the 10000 test images: 57 %
 Warning: No valid output stream.
-Epoch: 5 Loss: 0.820
-Accuracy of the network on the 10000 test images: 55 %
+Epoch: 5 Loss: 0.721
+Accuracy of the network on the 10000 test images: 58 %
 Warning: No valid output stream.
-Epoch: 6 Loss: 0.804
-Accuracy of the network on the 10000 test images: 64 %
-Warning: No valid output stream.
-Epoch: 7 Loss: 0.732
-Accuracy of the network on the 10000 test images: 62 %
-Warning: No valid output stream.
-Epoch: 8 Loss: 0.719
-Accuracy of the network on the 10000 test images: 67 %
-Warning: No valid output stream.
-Epoch: 9 Loss: 0.692
-Accuracy of the network on the 10000 test images: 67 %
-Warning: No valid output stream.
-Epoch: 10 Loss: 0.555
-Accuracy of the network on the 10000 test images: 68 %
-Warning: No valid output stream.
-Epoch: 11 Loss: 0.470
-Accuracy of the network on the 10000 test images: 68 %
-Warning: No valid output stream.
-Epoch: 12 Loss: 0.402
-Accuracy of the network on the 10000 test images: 71 %
-Warning: No valid output stream.
-Epoch: 13 Loss: 0.429
-Accuracy of the network on the 10000 test images: 67 %
-Warning: No valid output stream.
-Epoch: 14 Loss: 0.547
+Epoch: 6 Loss: 0.666
 Accuracy of the network on the 10000 test images: 70 %
 Warning: No valid output stream.
-Epoch: 15 Loss: 0.520
+Epoch: 7 Loss: 0.553
 Accuracy of the network on the 10000 test images: 67 %
 Warning: No valid output stream.
-Epoch: 16 Loss: 0.371
-Accuracy of the network on the 10000 test images: 71 %
-Warning: No valid output stream.
-Epoch: 17 Loss: 0.333
-Accuracy of the network on the 10000 test images: 73 %
-Warning: No valid output stream.
-Epoch: 18 Loss: 0.256
-Accuracy of the network on the 10000 test images: 72 %
-Warning: No valid output stream.
-Epoch: 19 Loss: 0.236
-Accuracy of the network on the 10000 test images: 71 %
-Warning: No valid output stream.
-Epoch: 20 Loss: 0.208
-Accuracy of the network on the 10000 test images: 71 %
-Warning: No valid output stream.
-Epoch: 21 Loss: 0.202
-Accuracy of the network on the 10000 test images: 73 %
-Warning: No valid output stream.
-Epoch: 22 Loss: 0.175
-Accuracy of the network on the 10000 test images: 72 %
-Warning: No valid output stream.
-Epoch: 23 Loss: 0.185
-Accuracy of the network on the 10000 test images: 72 %
-Warning: No valid output stream.
-Epoch: 24 Loss: 0.167
-Accuracy of the network on the 10000 test images: 71 %
-Warning: No valid output stream.
-Epoch: 25 Loss: 0.169
-Accuracy of the network on the 10000 test images: 71 %
-Warning: No valid output stream.
-Epoch: 26 Loss: 0.143
-Accuracy of the network on the 10000 test images: 71 %
-Warning: No valid output stream.
-Epoch: 27 Loss: 0.144
-Accuracy of the network on the 10000 test images: 71 %
-Warning: No valid output stream.
-Epoch: 28 Loss: 0.114
-Accuracy of the network on the 10000 test images: 73 %
-Warning: No valid output stream.
-Epoch: 29 Loss: 0.129
-Accuracy of the network on the 10000 test images: 73 %
-Warning: No valid output stream.
-Epoch: 30 Loss: 0.135
-Accuracy of the network on the 10000 test images: 72 %
-Warning: No valid output stream.
-Epoch: 31 Loss: 0.142
-Accuracy of the network on the 10000 test images: 72 %
-Warning: No valid output stream.
-Epoch: 32 Loss: 0.144
-Accuracy of the network on the 10000 test images: 74 %
-Warning: No valid output stream.
-Epoch: 33 Loss: 0.134
-Accuracy of the network on the 10000 test images: 72 %
-Warning: No valid output stream.
-Epoch: 34 Loss: 0.104
-Accuracy of the network on the 10000 test images: 73 %
-Warning: No valid output stream.
-Epoch: 35 Loss: 0.086
-Accuracy of the network on the 10000 test images: 72 %
-Warning: No valid output stream.
-Epoch: 36 Loss: 0.065
-Accuracy of the network on the 10000 test images: 74 %
-Warning: No valid output stream.
-Epoch: 37 Loss: 0.041
-Accuracy of the network on the 10000 test images: 73 %
-Warning: No valid output stream.
-Epoch: 38 Loss: 0.064
-Accuracy of the network on the 10000 test images: 74 %
-Warning: No valid output stream.
-Epoch: 39 Loss: 0.067
-Accuracy of the network on the 10000 test images: 72 %
-Warning: No valid output stream.
-Epoch: 40 Loss: 0.056
-Accuracy of the network on the 10000 test images: 73 %
-Warning: No valid output stream.
-Epoch: 41 Loss: 0.060
-Accuracy of the network on the 10000 test images: 74 %
-Warning: No valid output stream.
-Epoch: 42 Loss: 0.049
-Accuracy of the network on the 10000 test images: 75 %
-Warning: No valid output stream.
-Epoch: 43 Loss: 0.047
-Accuracy of the network on the 10000 test images: 74 %
-Warning: No valid output stream.
-Epoch: 44 Loss: 0.040
-Accuracy of the network on the 10000 test images: 74 %
-Warning: No valid output stream.
-Epoch: 45 Loss: 0.036
-Accuracy of the network on the 10000 test images: 72 %
-Warning: No valid output stream.
-Epoch: 46 Loss: 0.060
-Accuracy of the network on the 10000 test images: 73 %
-Warning: No valid output stream.
-Epoch: 47 Loss: 0.051
-Accuracy of the network on the 10000 test images: 75 %
-Warning: No valid output stream.
-Epoch: 48 Loss: 0.051
-Accuracy of the network on the 10000 test images: 73 %
-Warning: No valid output stream.
-Epoch: 49 Loss: 0.055
-Accuracy of the network on the 10000 test images: 73 %
-Warning: No valid output stream.
-Epoch: 50 Loss: 0.038
-Accuracy of the network on the 10000 test images: 73 %
-Finished Training
