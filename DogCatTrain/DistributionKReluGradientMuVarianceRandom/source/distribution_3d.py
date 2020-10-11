@@ -8,6 +8,8 @@ def get_distribution_3d_random(input_shape):
   x = np.linspace(-1, 1, input_width)
 
   mu_x, mu_y, variance_x, variance_y =  np.random.randn(4)
+  variance_x = np.abs(variance_x)
+  variance_y = np.abs(variance_y)
   x, y = np.meshgrid(x, y)
 
   position = np.empty(x.shape + (2,))

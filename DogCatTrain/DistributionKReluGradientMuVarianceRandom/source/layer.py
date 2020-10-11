@@ -1,7 +1,7 @@
 import numpy as np
 import torch
 import torch.nn as nn
-from distribution_3d import get_distribution_3d, get_distribution_3d_random
+from distribution_3d import get_distribution_3d_random
 from activations import krelu
 
 class DistributionConvolution2DGradientKReluMuRandom(nn.Module):
