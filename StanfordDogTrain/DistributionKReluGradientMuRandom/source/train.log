@@ -1,4 +1,0 @@
-Loading Images...
-Warning: No valid output stream.
-/home/shouki/.pyenv/versions/ai_env/lib/python3.8/site-packages/torch/autograd/__init__.py:125: UserWarning: Mixed memory format inputs detected while calling the operator. The operator will output contiguous tensor even if some of the inputs are in channels_last format. (Triggered internally at  /pytorch/aten/src/ATen/native/TensorIterator.cpp:918.)
-  Variable._execution_engine.run_backward(
