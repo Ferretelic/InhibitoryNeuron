@@ -156,3 +156,6 @@ Warning: No valid output stream.
 Epoch: 49 Loss: 0.070
 Accuracy of the network on the 10000 test images: 76 %
 Warning: No valid output stream.
+Epoch: 50 Loss: 0.052
+Accuracy of the network on the 10000 test images: 75 %
+Finished Training
