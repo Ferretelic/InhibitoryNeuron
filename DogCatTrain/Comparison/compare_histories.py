@@ -19,6 +19,7 @@ for history_type in ["accuracy", "loss"]:
     if os.path.exists(path) == True:
       with open(path, "rb") as f:
         history = pickle.load(f)
+        history[history_type] = history[history_type][:50]
         plt.plot(np.arange(len(history[history_type])), history[history_type], label="Model{}".format(index + 1))
 
   plt.xlabel("epochs")
