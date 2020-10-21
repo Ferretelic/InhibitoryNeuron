@@ -33,7 +33,7 @@ model.load_state_dict(torch.load("../model/model_final.pth")["model_state_dict"]
 #     plt.subplots_adjust(wspace=0, hspace=0)
 #     figure.savefig("../image/distribution_trained_conv{}_{}.png".format(i + 1, j + 1))
 
-distribution = model.conv1_1.distribution.detach().numpy()[4]
-plot_distribution(distribution, name="distribution_trained_conv1_1_0.png")
+distribution = model.conv1_1.distribution.detach().numpy()[25]
+plot_distribution(distribution, name="distribution_trained_conv1_1_25.png")
 
 # plot_distribution_2d(distributions[0], name="distribution_trained_2d.png")
