@@ -4,7 +4,7 @@ from network import DistributionConvolutionModelKReluGradientMuRandom
 import matplotlib.pyplot as plt
 
 model = DistributionConvolutionModelKReluGradientMuRandom(image_size=(100, 100))
-model.load_state_dict(torch.load("../model/model_final.pth")["model_state_dict"])
+# model.load_state_dict(torch.load("../model/model_final.pth")["model_state_dict"])
 
 layers = [
   [model.conv1_1, model.conv1_2],

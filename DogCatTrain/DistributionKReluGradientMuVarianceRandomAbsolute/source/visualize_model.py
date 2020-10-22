@@ -31,7 +31,7 @@ for i, layer in enumerate(layers):
       graph.axis("off")
 
     plt.subplots_adjust(wspace=0, hspace=0)
-    figure.savefig("../image/distribution_conv{}_{}.png".format(i + 1, j + 1))
+    figure.savefig("../image/distribution_trained_conv{}_{}.png".format(i + 1, j + 1))
 
 plot_distribution(distributions[0], name="distribution_trained.png")
 plot_distribution_2d(distributions[0], name="distribution_trained_2d.png")
